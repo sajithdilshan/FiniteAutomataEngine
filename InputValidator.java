@@ -2,7 +2,10 @@ import org.fa.api.FiniteAutomata;
 import org.fa.dfa.DFA;
 import org.fa.exceptions.InvalidAutomata;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class InputValidator {
 
@@ -13,14 +16,9 @@ public class InputValidator {
         System.out.println("Enter the full file name which contains the DFA");
         String fileName = br.readLine();
 
-
-        File dir = new File(".");
-
-        File dfaFile = new File(dir.getCanonicalPath() + File.separator + "input" + File.separator + fileName);
-
         FiniteAutomata dfa = new DFA();
         try {
-            dfa.initialize(dfaFile);
+            dfa.initialize(fileName);
         } catch (InvalidAutomata e) {
             System.out.print(e.getMessage());
             System.exit(0);

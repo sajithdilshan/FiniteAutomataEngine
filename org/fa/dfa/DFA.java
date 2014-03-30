@@ -4,7 +4,10 @@ import org.fa.api.FiniteAutomata;
 import org.fa.api.State;
 import org.fa.exceptions.InvalidAutomata;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class DFA implements FiniteAutomata {
@@ -27,9 +30,11 @@ public class DFA implements FiniteAutomata {
     }
 
     @Override
-    public void initialize(File inputFile) throws InvalidAutomata, IOException {
+    public void initialize(String inputFileName) throws InvalidAutomata, IOException {
         /* reads the input from the file and adds it to a queue of Strings */
-        BufferedReader br = new BufferedReader(new FileReader(inputFile));
+        final String filePath = (new File("")).getAbsolutePath() + File.separator + "input" + File.separator + inputFileName;
+        System.out.println(filePath);
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
         Queue<String> lines = new LinkedList<String>();
         String line;
         while ((line = br.readLine()) != null) {
