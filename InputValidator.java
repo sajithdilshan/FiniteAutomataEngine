@@ -34,9 +34,9 @@ public class InputValidator {
         System.out.println("Type the expression and press enter ");
         while ((input = br.readLine()) != null) {
             if (dfa.validateInput(input)) {
-                System.out.println(input + " is a valid input string");
+                System.out.println(input + " is a valid input string\n");
             } else {
-                System.out.println(input + " is an invalid input string");
+                System.out.println(input + " is an invalid input string\n");
             }
             System.out.println("Type the expression and press enter ");
         }
