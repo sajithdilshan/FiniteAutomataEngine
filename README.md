@@ -26,11 +26,11 @@ E.g:  s3:d;s3,l;s4 means that state with the id 's3' has two transitions. Upon r
 current state will transit to the state 's3' and upon receiving 'l', current state will transit to
 the state 's4'
 
-* After defining the new DFA put that file in the 'input' directory and run the 'InputValidator.java' file
+* After defining the new DFA put that file in the 'input' directory and run the 'src/InputValidator.java' file
 
 ###How to run the FA engine
 
-* After defining a new DFA and placing it within the 'input' directory, execute 'InputValidator.java' file
+* After defining a new DFA and placing it within the 'input' directory, execute 'src/InputValidator.java' file
 
 * Give the name of the newly created DFA file ( the one which was places within the 'input' directory)
 
