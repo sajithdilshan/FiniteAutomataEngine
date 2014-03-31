@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Finite automata engine by sajithdilshan</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/sajithdilshan/FiniteAutomataEngine">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/sajithdilshan/FiniteAutomataEngine/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/sajithdilshan/FiniteAutomataEngine/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Finite automata engine</h1>
+          <p>Finite Automata Engine</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/sajithdilshan">sajithdilshan</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="finite-automata-engine" class="anchor" href="#finite-automata-engine"><span class="octicon octicon-link"></span></a>Finite Automata Engine</h1>
+
+<hr><h3>
+<a name="how-to-define-a-new-deterministic-finite-automata" class="anchor" href="#how-to-define-a-new-deterministic-finite-automata"><span class="octicon octicon-link"></span></a>How to define a new Deterministic Finite Automata</h3>
+
+<ul>
+<li><p>Sample DFA is available in input/dfa1.txt</p></li>
+<li><p>First line of the file should contain the number of total states in the DFA</p></li>
+<li><p>2nd line should contain the start state of the DFA</p></li>
+<li><p>3rd line should contain a comma separated list of accepted states</p></li>
+<li><p>4th line should contain the number of substitutions</p></li>
+<li><p>next n lines contains the substitutions
+substitutions should be in the form of
+:
+E.g: d:1,2,3,4,5,6,7,8,9,0 means that 0-9 digits are substitutes by the letter 'd'</p></li>
+<li><p>next n lines contains the states with their transitions as follows
+:
+the transition should be in the form of
+
+E.g:  s3:d;s3,l;s4 means that state with the id 's3' has two transitions. Upon receiving 'd',
+current state will transit to the state 's3' and upon receiving 'l', current state will transit to
+the state 's4'</p></li>
+<li><p>After defining the new DFA put that file in the 'input' directory and execute the 'InputValidator.java' file</p></li>
+</ul><h3>
+<a name="how-to-run-the-fa-engine" class="anchor" href="#how-to-run-the-fa-engine"><span class="octicon octicon-link"></span></a>How to run the FA engine</h3>
+
+<ul>
+<li><p>After defining a new DFA and placing it within the 'input' directory, execute 'InputValidator.java' file</p></li>
+<li><p>Give the name of the newly created DFA file ( the one which was places within the 'input' directory)</p></li>
+<li><p>Enter the expression which needs to be validated against the DFA</p></li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
