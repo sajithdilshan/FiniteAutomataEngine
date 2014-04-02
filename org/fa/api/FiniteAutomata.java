@@ -23,5 +23,15 @@ public interface FiniteAutomata {
      */
     public void initialize(String inputFileName) throws InvalidAutomata, IOException;
 
+    /**
+     * Performs validation of a String according to the Finite Automata definition
+     * provided
+     *
+     * @param input String which contains the expression that has to be validated
+     * @return True is the expression is valid and False otherwise
+     * @throws IllegalStateException when this method is called prior to the
+     *                               invocation of {@link #initialize(String)} method
+     */
     public boolean validateInput(String input) throws IllegalStateException;
+
 }

@@ -4,10 +4,7 @@ import org.fa.api.FiniteAutomata;
 import org.fa.api.State;
 import org.fa.exceptions.InvalidAutomata;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class DFA implements FiniteAutomata {
@@ -33,7 +30,7 @@ public class DFA implements FiniteAutomata {
     public void initialize(String inputFileName) throws InvalidAutomata, IOException {
         /* reads the input from the file and adds it to a queue of Strings */
         final String filePath = (new File("")).getAbsolutePath() + File.separator + "input" + File.separator + inputFileName;
-        System.out.println(filePath);
+
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         Queue<String> lines = new LinkedList<String>();
         String line;
@@ -92,6 +89,8 @@ public class DFA implements FiniteAutomata {
                 state.setAccepted(true);
             }
         }
+
+        System.out.println("Successfully loaded the DFA within " + inputFileName + "\n");
         this.initialized = true;
     }
 
@@ -127,6 +126,43 @@ public class DFA implements FiniteAutomata {
             currentState = stateMap.get(nextState);
         }
         return false;
+    }
+
+
+    public void execute() throws IOException {
+        BufferedReader br =
+                new BufferedReader(new InputStreamReader(System.in));
+        /* obtain the file name which contains the definition of the DFA */
+        System.out.println("Enter the full file name which contains the DFA");
+        String fileName = br.readLine();
+
+        try {
+            initialize(fileName);
+        } catch (InvalidAutomata e) {
+            System.out.print(e.getMessage());
+            System.exit(0);
+        } catch (FileNotFoundException e) {
+            System.out.println("File with the given name " + fileName
+                    + " doesn't exists in the input directory");
+            System.exit(0);
+        } catch (IOException e) {
+            System.out.println("I/O Error occurred while reading from file "
+                    + fileName);
+            System.exit(0);
+        }
+
+
+        String input;
+        System.out.println("Type the expression and press enter ");
+        while ((input = br.readLine()) != null) {
+            if (validateInput(input)) {
+                System.out.println(input + " is a valid expression\n");
+            } else {
+                System.out.println(input + " is an invalid expression\n");
+            }
+            System.out.println("Type the expression and press enter ");
+        }
+
     }
 
 

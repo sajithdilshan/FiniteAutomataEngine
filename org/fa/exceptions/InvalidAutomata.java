@@ -1,7 +1,7 @@
 package org.fa.exceptions;
 
 /**
- * This exception is throw when the definition of the Finite Automata is
+ * This exception is thrown when the definition of the Finite Automata is
  * invalid.
  */
 public class InvalidAutomata extends Exception {
