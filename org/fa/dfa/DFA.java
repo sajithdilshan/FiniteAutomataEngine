@@ -49,7 +49,7 @@ public class DFA implements FiniteAutomata {
         int numOfSubstitutes = Integer.valueOf(lines.poll());
         for (int i = 0; i < numOfSubstitutes; i++) {
             String substituteLine = lines.poll();
-            String[] keyVal = substituteLine.split(SEPARATOR);
+            String[] keyVal = substituteLine.split(SEPARATOR, 2);
             String[] keys = keyVal[1].split(VALUE_SEPARATOR);
             for (String key : keys) {
                 substitutesMap.put(key, keyVal[0]);
@@ -64,7 +64,7 @@ public class DFA implements FiniteAutomata {
         /* creates new states and add transition information*/
         while (!lines.isEmpty()) {
             String currentLine = lines.poll();
-            String[] stateInfo = currentLine.split(SEPARATOR);
+            String[] stateInfo = currentLine.split(SEPARATOR, 2);
             /* creates a new state with the given state ID */
             State state = new StateImpl(stateInfo[0]);
             if (stateInfo.length == 2) { /* if the state has transitions */
@@ -127,43 +127,5 @@ public class DFA implements FiniteAutomata {
         }
         return false;
     }
-
-
-    public void execute() throws IOException {
-        BufferedReader br =
-                new BufferedReader(new InputStreamReader(System.in));
-        /* obtain the file name which contains the definition of the DFA */
-        System.out.println("Enter the full file name which contains the DFA");
-        String fileName = br.readLine();
-
-        try {
-            initialize(fileName);
-        } catch (InvalidAutomata e) {
-            System.out.print(e.getMessage());
-            System.exit(0);
-        } catch (FileNotFoundException e) {
-            System.out.println("File with the given name " + fileName
-                    + " doesn't exists in the input directory");
-            System.exit(0);
-        } catch (IOException e) {
-            System.out.println("I/O Error occurred while reading from file "
-                    + fileName);
-            System.exit(0);
-        }
-
-
-        String input;
-        System.out.println("Type the expression and press enter ");
-        while ((input = br.readLine()) != null) {
-            if (validateInput(input)) {
-                System.out.println(input + " is a valid expression\n");
-            } else {
-                System.out.println(input + " is an invalid expression\n");
-            }
-            System.out.println("Type the expression and press enter ");
-        }
-
-    }
-
 
 }
