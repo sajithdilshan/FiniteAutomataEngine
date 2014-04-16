@@ -35,3 +35,15 @@ the state 's4'
 * Give the name of the newly created DFA file ( the one which was places within the 'input' directory)
 
 * Enter the expression which needs to be validated against the DFA
+
+###How to run the Arithmetic Expression validating DFA
+
+* Navigate to the FiniteAutomataEngine directory within your terminal and execute
+    javac InputValidator.java
+
+* After successful compilation, execute
+    java InputValidator
+
+* When the program starts, it will asks for the file name which contains the definition of the DFA. Give 'arithmeticExpressionDFA.txt' as the file name and press enter
+
+* Now the program will load the definition of the DFA and you can continue validating arithmetic expressions.
